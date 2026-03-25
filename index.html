@@ -126,19 +126,30 @@
       letter-spacing:-.3px;
     }
     .sub{margin:8px 0 0; color:var(--muted); font-size:12px}
-    .footer{
-      margin-top:18px;
-      text-align:center;
-      color:var(--muted);
-      font-weight:700;
-      letter-spacing:.6px;
-    }
     @media (max-width:720px){
-      body{padding:22px 14px}
-      h1{font-size:26px}
-      .name strong{font-size:17px}
-      .card{grid-column: span 12}
+      body{padding:14px 12px}
+      header{gap:6px; margin-bottom:12px}
+      h1{font-size:22px}
+      .name{font-size:13px}
+      .name strong{font-size:16px}
+      .position{font-size:12px}
+
+      .grid{gap:10px}
+      .card{
+        grid-column: span 6;
+        padding: 12px 12px 11px;
+      }
+      .card::before{width:3px}
+      .top{gap:8px; margin-bottom:8px}
+      .label{font-size:11px}
+      .pill{font-size:11px; padding:5px 8px}
+      .value{font-size:22px}
       .card:hover{transform:none}
+    }
+    @media (max-width:380px){
+      h1{font-size:20px}
+      .value{font-size:20px}
+      .grid{gap:8px}
     }
     @media (prefers-reduced-motion: reduce){
       .card, .card:hover{transition:none; transform:none}
@@ -194,8 +205,6 @@
         <p class="value">6</p>
       </div>
     </section>
-
-    <p class="footer">GOOD JOB!</p>
   </div>
 </body>
 </html>
