@@ -12,8 +12,8 @@
       --text: #3c4043;
       --title: #1f2328;
       --muted: #6b7280;
-      --shadow: 0 14px 40px rgba(15, 23, 42, .08);
-      --shadowHover: 0 18px 50px rgba(15, 23, 42, .12);
+      --shadow: 0 10px 24px rgba(15, 23, 42, .06);
+      --shadowHover: 0 12px 28px rgba(15, 23, 42, .08);
       --radius: 18px;
       --accent: #e30613;
     }
@@ -38,6 +38,18 @@
       flex-direction:column;
       gap:10px;
       margin-bottom:18px;
+    }
+    .headerTop{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .asOf{
+      margin:2px 0 0;
+      color:var(--muted);
+      font-size:13px;
+      white-space:nowrap;
     }
     h1{
       margin:0;
@@ -92,6 +104,13 @@
       box-shadow: var(--shadowHover);
       border-color: rgba(227, 6, 19, .22);
     }
+    .card.featured{
+      border-color: rgba(227, 6, 19, .35);
+      background: linear-gradient(180deg, rgba(227, 6, 19, .06), rgba(227, 6, 19, 0));
+    }
+    .card.featured .value{
+      color: var(--accent);
+    }
     .top{
       display:flex;
       align-items:flex-start;
@@ -132,6 +151,8 @@
         align-items:flex-start;
       }
       header{gap:6px; margin-bottom:12px}
+      .headerTop{gap:10px}
+      .asOf{font-size:12px}
       h1{font-size:22px}
       .name{font-size:13px}
       .name strong{font-size:16px}
@@ -157,18 +178,49 @@
     @media (prefers-reduced-motion: reduce){
       .card, .card:hover{transition:none; transform:none}
     }
+
+    .actions{
+      margin-top:14px;
+      display:flex;
+      gap:10px;
+      justify-content:center;
+    }
+    .btn{
+      appearance:none;
+      border:1px solid var(--stroke);
+      background:#fff;
+      color:var(--title);
+      border-radius:999px;
+      padding:10px 14px;
+      font-weight:700;
+      letter-spacing:.2px;
+      cursor:pointer;
+      box-shadow: 0 6px 16px rgba(15,23,42,.05);
+    }
+    .btn.primary{
+      border-color: rgba(227, 6, 19, .35);
+      background: rgba(227, 6, 19, .08);
+      color: var(--accent);
+    }
+    @media (max-width:720px){
+      .actions{margin-top:12px}
+      .btn{padding:9px 12px; font-size:13px}
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
-      <h1>Moje denní peníze</h1>
+      <div class="headerTop">
+        <h1>Moje denní peníze</h1>
+        <p class="asOf">Data k 26.3.2026</p>
+      </div>
       <p class="name">Jméno: <strong>Ivana Vojíková</strong></p>
       <p class="position">Pozice: <strong>VIP Poradce Retail</strong></p>
     </header>
 
     <section class="grid" aria-label="Dashboard metriky">
-      <div class="card">
+      <div class="card featured">
         <div class="top">
           <p class="label">Provize</p>
           <span class="pill">Dnes</span>
@@ -216,6 +268,11 @@
         <p class="value">6</p>
       </div>
     </section>
+
+    <div class="actions" aria-label="Ovládání">
+      <button class="btn primary" type="button">DNES</button>
+      <button class="btn" type="button">ZVOLIT DATUM</button>
+    </div>
   </div>
 </body>
 </html>
