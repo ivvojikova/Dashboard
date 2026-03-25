@@ -45,11 +45,28 @@
       justify-content:space-between;
       gap:12px;
     }
-    .asOf{
-      margin:2px 0 0;
+    .periodBox{
+      margin:0;
+      padding:10px 12px;
+      border:1px solid var(--stroke);
+      border-radius:12px;
+      background:#fff;
+      text-align:right;
+      min-width: 230px;
+    }
+    .periodLabel{
+      margin:0;
       color:var(--muted);
-      font-size:13px;
-      white-space:nowrap;
+      font-size:12px;
+      line-height:1.2;
+    }
+    .periodValue{
+      margin:4px 0 0;
+      color:var(--accent);
+      font-size:20px;
+      font-weight:800;
+      letter-spacing:-.2px;
+      line-height:1.1;
     }
     h1{
       margin:0;
@@ -172,6 +189,17 @@
       gap:10px;
       justify-content:center;
     }
+    .metaRow{
+      margin-top:10px;
+      display:flex;
+      justify-content:flex-end;
+    }
+    .asOf{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      white-space:nowrap;
+    }
     .btn{
       appearance:none;
       border:1px solid var(--stroke);
@@ -190,7 +218,15 @@
       color: var(--accent);
     }
     @media (max-width:720px){
+      .periodBox{
+        min-width: 0;
+        padding:8px 10px;
+      }
+      .periodLabel{font-size:11px}
+      .periodValue{font-size:17px}
       .actions{margin-top:12px}
+      .metaRow{margin-top:8px}
+      .asOf{font-size:12px}
       .btn{padding:9px 12px; font-size:13px}
     }
   </style>
@@ -200,7 +236,10 @@
     <header>
       <div class="headerTop">
         <h1>Moje denní peníze</h1>
-        <p class="asOf">Data k 26.3.2026</p>
+        <div class="periodBox" aria-label="Souhrn za období">
+          <p class="periodLabel">Získaná provize za období</p>
+          <p class="periodValue">50&nbsp;000&nbsp;Kč</p>
+        </div>
       </div>
       <p class="name">Jméno: <strong>Ivana Vojíková</strong></p>
       <p class="position">Pozice: <strong>VIP Poradce Retail</strong></p>
@@ -253,6 +292,9 @@
     <div class="actions" aria-label="Ovládání">
       <button class="btn primary" type="button">DNES</button>
       <button class="btn" type="button">ZVOLIT DATUM</button>
+    </div>
+    <div class="metaRow">
+      <p class="asOf">Data k 26.3.2026</p>
     </div>
   </div>
 </body>
