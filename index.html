@@ -45,29 +45,6 @@
       justify-content:space-between;
       gap:12px;
     }
-    .periodBox{
-      margin:0;
-      padding:0;
-      border:none;
-      border-radius:0;
-      background:transparent;
-      text-align:right;
-      min-width: 0;
-    }
-    .periodLabel{
-      margin:0;
-      color:var(--muted);
-      font-size:12px;
-      line-height:1.2;
-    }
-    .periodValue{
-      margin:4px 0 0;
-      color:var(--title);
-      font-size:20px;
-      font-weight:800;
-      letter-spacing:-.2px;
-      line-height:1.1;
-    }
     h1{
       margin:0;
       font-size:30px;
@@ -218,12 +195,6 @@
       color: var(--accent);
     }
     @media (max-width:720px){
-      .periodBox{
-        min-width: 0;
-        padding:8px 10px;
-      }
-      .periodLabel{font-size:11px}
-      .periodValue{font-size:17px}
       .actions{margin-top:12px}
       .metaRow{margin-top:8px}
       .asOf{font-size:12px}
@@ -236,10 +207,6 @@
     <header>
       <div class="headerTop">
         <h1>Moje denní peníze</h1>
-        <div class="periodBox" aria-label="Souhrn za období">
-          <p class="periodLabel">Získaná provize za období</p>
-          <p class="periodValue">50&nbsp;000&nbsp;Kč</p>
-        </div>
       </div>
       <p class="name">Jméno: <strong>Ivana Vojíková</strong></p>
       <p class="position">Pozice: <strong>VIP Poradce Retail</strong></p>
@@ -286,6 +253,13 @@
           <p class="label">Body do VK</p>
         </div>
         <p class="value">6</p>
+      </div>
+
+      <div class="card">
+        <div class="top">
+          <p class="label">Získaná provize za období</p>
+        </div>
+        <p class="value">50&nbsp;000&nbsp;Kč</p>
       </div>
     </section>
 
