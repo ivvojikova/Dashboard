@@ -12,49 +12,100 @@
       --text: #3c4043;
       --title: #1f2328;
       --muted: #6b7280;
+      --shadow: 0 14px 40px rgba(15, 23, 42, .08);
+      --shadowHover: 0 18px 50px rgba(15, 23, 42, .12);
+      --radius: 18px;
+      --accent: #2f6fed;
     }
     *{box-sizing:border-box}
+    html, body{height:100%}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
       color:var(--text);
       background:
-        radial-gradient(900px 600px at 12% 0%, rgba(0,0,0,.035) 0%, transparent 55%),
-        radial-gradient(900px 600px at 88% 10%, rgba(0,0,0,.02) 0%, transparent 55%),
+        radial-gradient(900px 600px at 12% 0%, rgba(47, 111, 237, .08) 0%, transparent 55%),
+        radial-gradient(900px 600px at 88% 10%, rgba(17, 24, 39, .06) 0%, transparent 55%),
         var(--bg);
-      min-height:100vh;
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:32px 16px;
+      padding:40px 16px;
     }
     .wrap{width:min(980px, 100%)}
     header{
       display:flex;
       flex-direction:column;
-      gap:6px;
-      margin-bottom:16px;
+      gap:10px;
+      margin-bottom:18px;
     }
-    h1{margin:0; font-size:28px; letter-spacing:-.2px; color:var(--title)}
-    .name{margin:0; color:var(--muted); font-size:14px}
+    h1{
+      margin:0;
+      font-size:30px;
+      letter-spacing:-.4px;
+      color:var(--title);
+      line-height:1.1;
+    }
+    .name{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+    }
     .grid{
       display:grid;
       grid-template-columns: repeat(12, 1fr);
-      gap:12px;
+      gap:14px;
     }
     .card{
       grid-column: span 6;
       background: var(--surface);
       border: 1px solid var(--stroke);
-      border-radius: 16px;
+      border-radius: var(--radius);
       padding: 16px 16px 14px;
-      box-shadow: 0 10px 24px rgba(15, 23, 42, .06);
+      box-shadow: var(--shadow);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
     }
-    .label{color:var(--muted); font-size:12px; margin:0 0 8px; letter-spacing:.3px; text-transform:uppercase}
-    .value{font-size:28px; font-weight:700; margin:0; color:var(--title)}
+    .card:hover{
+      transform: translateY(-2px);
+      box-shadow: var(--shadowHover);
+      border-color: rgba(47, 111, 237, .25);
+    }
+    .top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:10px;
+    }
+    .label{
+      color:var(--muted);
+      font-size:12px;
+      margin:0;
+      letter-spacing:.3px;
+      text-transform:uppercase;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--stroke);
+      color:var(--muted);
+      font-size:12px;
+      line-height:1;
+      background: rgba(255,255,255,.65);
+    }
+    .value{
+      font-size:30px;
+      font-weight:760;
+      margin:0;
+      color:var(--title);
+      letter-spacing:-.3px;
+    }
     .sub{margin:8px 0 0; color:var(--muted); font-size:12px}
     .footer{
-      margin-top:16px;
+      margin-top:18px;
       text-align:center;
       color:var(--muted);
       font-weight:700;
@@ -62,6 +113,10 @@
     }
     @media (max-width:720px){
       .card{grid-column: span 12}
+      .card:hover{transform:none}
+    }
+    @media (prefers-reduced-motion: reduce){
+      .card, .card:hover{transition:none; transform:none}
     }
   </style>
 </head>
@@ -74,33 +129,43 @@
 
     <section class="grid" aria-label="Dashboard metriky">
       <div class="card">
-        <p class="label">Provize</p>
+        <div class="top">
+          <p class="label">Provize</p>
+          <span class="pill">Dnes</span>
+        </div>
         <p class="value">5&nbsp;000&nbsp;Kč</p>
-        <p class="sub">Dnes</p>
       </div>
 
       <div class="card">
-        <p class="label">eKoruny</p>
+        <div class="top">
+          <p class="label">eKoruny</p>
+          <span class="pill">Stav</span>
+        </div>
         <p class="value">100</p>
-        <p class="sub">Stav</p>
       </div>
 
       <div class="card">
-        <p class="label">Produkce</p>
+        <div class="top">
+          <p class="label">Produkce</p>
+          <span class="pill">Dnes</span>
+        </div>
         <p class="value">20&nbsp;000&nbsp;Kč</p>
-        <p class="sub">Dnes</p>
       </div>
 
       <div class="card">
-        <p class="label">Smlouvy</p>
+        <div class="top">
+          <p class="label">Smlouvy</p>
+          <span class="pill">Dnes</span>
+        </div>
         <p class="value">4</p>
-        <p class="sub">Dnes</p>
       </div>
 
       <div class="card">
-        <p class="label">Body</p>
+        <div class="top">
+          <p class="label">Body</p>
+          <span class="pill">Dnes</span>
+        </div>
         <p class="value">6</p>
-        <p class="sub">Dnes</p>
       </div>
     </section>
 
